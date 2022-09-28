@@ -1,13 +1,19 @@
 import logo from "../../assets/logo.png";
+import { Header } from "./style.js";
 
-export function Header() {
+export function HeaderC({ setFilterInput, showProducts }) {
     return (
-        <header>
+        <Header>
             <img src={logo} alt="Logo BurguerKenzie" />
-            <div>
-                <input placeholder="Digitar Pesquisa" type="text" />
-                <button>Pesquisar</button>
-            </div>
-        </header>
+            <form onSubmit={(event) => showProducts(event.preventDefault())}>
+                <input
+                    onChange={(event) => setFilterInput(event.target.value)}
+                    placeholder="Digitar Pesquisa"
+                    type="text"
+                />
+
+                <button type="submit">Pesquisar</button>
+            </form>
+        </Header>
     );
 }

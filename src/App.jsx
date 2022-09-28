@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Header } from "./components/Header";
+import { HeaderC } from "./components/Header";
 import { ProductsList } from "./components/ProductsList";
 import { api } from "./services/api";
 
@@ -15,6 +15,8 @@ import { api } from "./services/api";
 
 function App() {
     const [products, setProducts] = useState([]);
+    const [filterInput, setFilterInput] = useState("");
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
     useEffect(() => {
         api.get("products")
@@ -22,10 +24,28 @@ function App() {
             .catch((err) => console.log(err));
     }, []);
 
+    function showProducts() {
+        const filtering = products.filter(
+            (product) =>
+                product.name.toLowerCase() === filterInput.toLowerCase()
+        );
+
+        setFilteredProducts(filtering);
+        return filtering;
+    }
+
     return (
         <div className="App">
-            <Header />
-            <ProductsList products={products} />
+            <HeaderC
+                showProducts={showProducts}
+                setFilterInput={setFilterInput}
+            />
+            <ProductsList
+                // showProducts={showProducts}
+                filterInput={filterInput}
+                filteredProducts={filteredProducts}
+                products={products}
+            />
         </div>
     );
 }

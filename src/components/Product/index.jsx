@@ -4,7 +4,7 @@ export function Product({ name, category, price, img }) {
             <img src={img} alt={name} />
             <h2>{name}</h2>
             <p>{category}</p>
-            <span>{price}</span>
+            <p>{price}</p>
             <button>Adicionar</button>
         </li>
     );
