@@ -1,0 +1,14 @@
+button {
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+}
+
+.btn-default {
+    border: 2px solid var(--color-primary);
+    background: var(--color-primary);
+    border-radius: 8px;
+    padding: 11px 15px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
