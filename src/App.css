@@ -1,0 +1,17 @@
+.App section {
+    display: flex;
+    padding-left: 20px;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    max-width: 1440px;
+}
+
+@media (min-width: 1080px) {
+    .App section {
+        flex-direction: row;
+        justify-content: space-between;
+
+        margin: 0 auto;
+    }
+}
