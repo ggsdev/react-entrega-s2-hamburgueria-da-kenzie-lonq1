@@ -1,16 +1,20 @@
 import { Product } from "../Product";
+import { UlList } from "./style.js";
 
-export function ProductsList({ products, filteredProducts }) {
+export function ProductsList({ products, filteredProducts, handleClick }) {
     function render() {
         const allProducts = products.map((product) => {
             const { name, category, price, id, img } = product;
             return (
                 <Product
+                    id={id}
+                    handleClick={handleClick}
                     key={id}
                     name={name}
                     category={category}
                     price={price}
                     img={img}
+                    children={"Adicionar"}
                 />
             );
         });
@@ -20,10 +24,13 @@ export function ProductsList({ products, filteredProducts }) {
                 const { name, category, price, id, img } = product;
                 return (
                     <Product
+                        id={id}
+                        handleClick={handleClick}
                         key={id}
                         name={name}
                         category={category}
                         price={price}
+                        children={"Adicionar"}
                         img={img}
                     />
                 );
@@ -33,5 +40,5 @@ export function ProductsList({ products, filteredProducts }) {
         return allProducts;
     }
 
-    return <ul>{render()}</ul>;
+    return <UlList>{render()}</UlList>;
 }
