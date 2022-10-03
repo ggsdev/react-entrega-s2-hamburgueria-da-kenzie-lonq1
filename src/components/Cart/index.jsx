@@ -28,7 +28,7 @@ export function Cart({ currentSale, setCurrentSale, removeItemCart }) {
     console.log(currentSale);
     return (
         <CartAside>
-            {currentSale ? (
+            {currentSale.length ? (
                 <div>
                     <div className="cart__header">
                         <h2>Carrinho de Compras</h2>
