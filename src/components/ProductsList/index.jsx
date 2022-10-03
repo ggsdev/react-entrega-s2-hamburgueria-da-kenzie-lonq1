@@ -37,6 +37,7 @@ export function ProductsList({ products, filteredProducts, handleClick }) {
             });
         }
 
+        
         return allProducts;
     }
 
