@@ -21,8 +21,11 @@ export function Cart({ currentSale, setCurrentSale, removeItemCart }) {
         );
     });
 
-    const totalCost = currentSale.reduce((acc, act) => acc + act.price, 0);
-
+    const totalCost = currentSale.reduce(
+        (acc, act) => acc + act.price * act.count,
+        0
+    );
+    console.log(currentSale);
     return (
         <CartAside>
             {currentSale.length ? (
