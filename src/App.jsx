@@ -56,10 +56,18 @@ function App() {
     }
 
     function removeItemCart(idProduct) {
-        const filteringCard = currentSale.filter(
-            (item) => item.id !== idProduct
-        );
-        setCurrentSale(filteringCard);
+        const filteringCard = currentSale.filter((item) => {
+            return item.id !== idProduct;
+        });
+
+        currentSale.forEach((cartItem) => {
+            if (cartItem.count > 1) {
+                setCurrentSale([...currentSale]);
+                cartItem.count--;
+            } else {
+                setCurrentSale(filteringCard);
+            }
+        });
     }
 
     return (
