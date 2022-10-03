@@ -1,4 +1,5 @@
 import toast from "react-hot-toast";
+
 import { Product } from "../Product/index.jsx";
 import { CartAside } from "./style.js";
 export function Cart({ currentSale, setCurrentSale, removeItemCart }) {
@@ -25,7 +26,7 @@ export function Cart({ currentSale, setCurrentSale, removeItemCart }) {
         (acc, act) => acc + act.price * act.count,
         0
     );
-    console.log(currentSale);
+
     return (
         <CartAside>
             {currentSale.length ? (

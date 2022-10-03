@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-
 import "./App.css";
 import { Cart } from "./components/Cart";
 import { Header } from "./components/Header";
@@ -20,16 +19,16 @@ function App() {
     }, []);
 
     function showProducts() {
-        const filtering = products.filter((product) => {
-            return (
-                product.name.toLowerCase().trim() ===
-                filterInput.toLowerCase().trim()
-            );
-        });
+        const filtering = products.filter((product) =>
+            product.name
+                .toLowerCase()
+                .trim()
+                .includes(filterInput.toLowerCase().trim())
+        );
 
         setFilteredProducts(filtering);
         if (filtering.length) {
-            toast.success(`${filtering[0].name} encontrado :)`);
+            toast.success(`Produto encontrado :)`);
         } else {
             toast.error(`Produto não encontrado, olhe novamente a vitrine.`);
         }
